@@ -7,15 +7,15 @@ function ExpenseItem(props) {
     const [title, setTitle] = useState(props.title)
 
     // console.log('Expense item evalueted by ExpenseItem')
+    console.log(props.items);
 
-    
     function clickHandler(){
         setTitle('Updated')
         console.log(props.title + " " + title)
     }
 
     return (
-        <Card className="expense-item">
+        <Card className="expense-item" draggable="true">
             <ExpenseDate date={ props.date } />
             <div className="expense-item__description">
                 <h2>{ title }</h2>
