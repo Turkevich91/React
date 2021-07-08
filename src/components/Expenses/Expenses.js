@@ -1,17 +1,21 @@
+import React, { useState } from 'react'
 import ExpenseItem from "./Expenseitem";
 import ExpensesFilter from "./ExpensesFilter";
 import Card from "../UI/Card";
 import "./Expenses.css"
 
 function Expenses(props) {
-    function filterHandler(chosenYear) {
+    const [filteredYear, setFilteredYear] = useState('2020')
+
+    function filterChangeHandler(chosenYear) {
+        setFilteredYear(chosenYear)
         console.log('chosen year: ', chosenYear)
     }
 
     return (
         <Card className="expenses">
             <div>
-                <ExpensesFilter onFilter={filterHandler} />
+                <ExpensesFilter selected={filteredYear} onChangeFilter={filterChangeHandler} />
             </div>
             {props.items.map(item => ( // how loop looks like in JSX
                 <ExpenseItem key={Math.random()} title={item.title} amount={item.amount} date={item.date} />
