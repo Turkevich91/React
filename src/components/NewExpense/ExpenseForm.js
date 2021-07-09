@@ -39,6 +39,12 @@ function ExpenseForm(props) {
         // })
     }
 
+    function clearForm() {
+        setEnteredTitle('')
+        setEnteredAmount('')
+        setEnteredDate('')
+    }
+
     function submitHandler(event){
         event.preventDefault()
 
@@ -50,11 +56,18 @@ function ExpenseForm(props) {
 
         props.onSaveExpenseData(expenseData)
         // cleaning fields
-        setEnteredTitle('')
-        setEnteredAmount('')
-        setEnteredDate('')
+        // setEnteredTitle('')
+        // setEnteredAmount('')
+        // setEnteredDate('')
+        clearForm()
 
         // console.log(expenseData)
+    }
+
+    function cancelForm(event) {
+        event.preventDefault()
+        clearForm()
+        // collaps()
     }
 
     return (
@@ -81,6 +94,7 @@ function ExpenseForm(props) {
 
             </div>
             <div className="new-expense__actions">
+                <button onClick={cancelForm}>Cancel</button>
                 <button type="submit">Add Expense</button>
             </div>
         </form>
