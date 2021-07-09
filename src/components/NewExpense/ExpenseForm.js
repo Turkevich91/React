@@ -60,6 +60,7 @@ function ExpenseForm(props) {
         // setEnteredAmount('')
         // setEnteredDate('')
         clearForm()
+        props.collapseForm()
 
         // console.log(expenseData)
     }
@@ -67,6 +68,8 @@ function ExpenseForm(props) {
     function cancelForm(event) {
         event.preventDefault()
         clearForm()
+        props.collapseForm()
+
         // collaps()
     }
 

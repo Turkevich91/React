@@ -1,4 +1,4 @@
-// import React from 'react'
+import { useState } from 'react'
 import ExpenseForm from "./ExpenseForm";
 import "./NewExpense.css"
 
@@ -12,9 +12,21 @@ function NewExpense(props) {
         console.log(props.test)
     }
 
+    const [form, setForm] = useState(<button onClick={expandForm}>Add new expense</button>)
+
+
+    function expandForm() {
+        setForm(<ExpenseForm collapseForm={collapseForm} onSaveExpenseData={saveExpenseDataHandler} />)
+    }
+
+    function collapseForm(){
+        setForm(<button onClick={expandForm}>Add new expense</button>)
+    }
+
     return(
         <div className="new-expense">
-            <ExpenseForm onSaveExpenseData={saveExpenseDataHandler} />
+            {/*<ExpenseForm onSaveExpenseData={saveExpenseDataHandler} />*/}
+            {form}
         </div>
     )
 }
