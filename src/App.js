@@ -34,7 +34,7 @@ function App() {
             return [expense, ...prevExpenses ]
             }
         )
-        console.log(expense)
+        console.log('Added expense: ', expense)
     }
 
     return (
